@@ -28,6 +28,7 @@ public class GridViewAdapter extends BaseAdapter {
 
     public void setPrice(Boolean b){
         bPrice = b;
+        notifyDataSetChanged();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
 
     String search[] = {"abocado", "banana", "cherry", "cranberry", "grape", "kiwi", "orange", "watermelon"};
-    Fruit m;
+    Fruit temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +50,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 adapter.setPrice(b);
-                adapter.notifyDataSetChanged();
             }
         });
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                m = data.get(i);
-                cWidget.setItem(m);
+                temp = data.get(i);
+                cWidget.setItem(temp);
 
             }
         });
@@ -69,14 +68,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAdd(String name, int imgno, int p) {
                 adapter.addItem(new Fruit(name, imgno, p));
-                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onModify(String name, int imgno, int p) {
-                m.setName(name);
-                m.setImgno(imgno);
-                m.setsPrice(p);
+                temp.setName(name);
+                temp.setImgno(imgno);
+                temp.setsPrice(p);
                 adapter.notifyDataSetChanged();
             }
         });
